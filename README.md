@@ -90,3 +90,6 @@ If you use this code, please consider citing the following papers:
 We thank the authors of [pytorch-deeplab-resnet](https://github.com/isht7/pytorch-deeplab-resnet) for making their PyTorch re-implementation of DeepLab-v2 available!
 
 If you encounter any problems please contact us at {kmaninis, scaelles}@vision.ee.ethz.ch.
+
+Refactored by Geoff French to act as a library.
+

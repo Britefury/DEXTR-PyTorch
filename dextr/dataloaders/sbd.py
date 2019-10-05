@@ -1,6 +1,5 @@
 from __future__ import print_function, division
 
-import torch, cv2
 import errno
 import hashlib
 import json
@@ -228,10 +227,10 @@ class SBDSegmentation(data.Dataset):
 
 if __name__ == '__main__':
     import matplotlib.pyplot as plt
-    import dataloaders.helpers as helpers
+    import dextr.dataloaders.helpers as helpers
     import torch
     import torchvision.transforms as transforms
-    import dataloaders.custom_transforms as tr
+    import dextr.dataloaders.custom_transforms as tr
 
     transform = transforms.Compose([tr.ToTensor()])
     dataset = SBDSegmentation(transform=transform)
@@ -239,7 +238,7 @@ if __name__ == '__main__':
 
     for i, data in enumerate(dataloader):
         plt.figure()
-        plt.imshow(helpers.tens2image(data['image'])/255)
+        plt.imshow(helpers.tens2image(data['image']) / 255)
         plt.figure()
         plt.imshow(helpers.tens2image(data['gt'])[:, :, 0])
         if i == 10:

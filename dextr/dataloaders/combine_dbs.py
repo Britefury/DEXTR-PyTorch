@@ -65,12 +65,12 @@ class CombineDBs(data.Dataset):
 
 if __name__ == "__main__":
     import matplotlib.pyplot as plt
-    import dataloaders.helpers as helpers
-    import dataloaders.pascal as pascal
-    import dataloaders.sbd as sbd
+    import dextr.dataloaders.helpers as helpers
+    import dextr.dataloaders.pascal as pascal
+    import dextr.dataloaders.sbd as sbd
     import torch
     import numpy as np
-    import dataloaders.custom_transforms as tr
+    import dextr.dataloaders.custom_transforms as tr
     from torchvision import transforms
 
     transform = transforms.Compose([tr.FixedResize({'image': (512, 512), 'gt': (512, 512)}),
@@ -87,7 +87,7 @@ if __name__ == "__main__":
         for jj in range(sample["image"].size()[0]):
             plt.figure()
             max_img = np.max(sample["image"][jj].numpy())
-            overlay = helpers.overlay_mask(helpers.tens2image(sample["image"][jj])/max_img, helpers.tens2image(sample["gt"][jj]))
+            overlay = helpers.overlay_mask(helpers.tens2image(sample["image"][jj]) / max_img, helpers.tens2image(sample["gt"][jj]))
             plt.imshow(overlay)
             plt.title(sample["meta"])
         if ii == 5:

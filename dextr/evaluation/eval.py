@@ -4,8 +4,8 @@ import cv2
 import numpy as np
 from PIL import Image
 
-import dataloaders.helpers as helpers
-import evaluation.evaluation as evaluation
+import dextr.dataloaders.helpers as helpers
+from dextr import evaluation as evaluation
 
 
 def eval_one_result(loader, folder, one_mask_per_image=False, mask_thres=0.5, use_void_pixels=True, custom_box=False):

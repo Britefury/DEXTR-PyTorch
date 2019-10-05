@@ -1,4 +1,3 @@
-import torch, cv2
 import errno
 import hashlib
 import os
@@ -264,9 +263,9 @@ class VOCSegmentation(data.Dataset):
 
 if __name__ == '__main__':
     import matplotlib.pyplot as plt
-    import dataloaders.helpers as helpers
+    import dextr.dataloaders.helpers as helpers
     import torch
-    import dataloaders.custom_transforms as tr
+    import dextr.dataloaders.custom_transforms as tr
     from torchvision import transforms
 
     transform = transforms.Compose([tr.ToTensor()])

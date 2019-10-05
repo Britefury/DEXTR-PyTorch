@@ -1,8 +1,8 @@
 import os.path
 
 from torch.utils.data import DataLoader
-from evaluation.eval import eval_one_result
-import dataloaders.pascal as pascal
+from dextr.evaluation import eval_one_result
+import dextr.dataloaders.pascal as pascal
 
 exp_root_dir = './'
 

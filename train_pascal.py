@@ -15,13 +15,13 @@ from torch.nn.functional import upsample
 from tensorboardX import SummaryWriter
 
 # Custom includes
-from dataloaders.combine_dbs import CombineDBs as combine_dbs
-import dataloaders.pascal as pascal
-import dataloaders.sbd as sbd
-from dataloaders import custom_transforms as tr
-import networks.deeplab_resnet as resnet
-from layers.loss import class_balanced_cross_entropy_loss
-from dataloaders.helpers import *
+from dextr.dataloaders.combine_dbs import CombineDBs as combine_dbs
+import dextr.dataloaders.pascal as pascal
+import dextr.dataloaders.sbd as sbd
+from dextr.dataloaders import custom_transforms as tr
+import dextr.networks.deeplab_resnet as resnet
+from dextr.layers import class_balanced_cross_entropy_loss
+from dextr.dataloaders.helpers import *
 
 # Set gpu_id to -1 to run in CPU mode, otherwise set the id of the corresponding gpu
 gpu_id = 0

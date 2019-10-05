@@ -2,7 +2,7 @@ import torch, cv2
 
 import numpy.random as random
 import numpy as np
-import dataloaders.helpers as helpers
+import dextr.dataloaders.helpers as helpers
 
 
 class ScaleNRotate(object):
@@ -223,14 +223,16 @@ class CropFromMask(object):
                     if np.max(_target[..., k]) == 0:
                         _crop.append(np.zeros(_tmp_img.shape, dtype=_img.dtype))
                     else:
-                        _crop.append(helpers.crop_from_mask(_tmp_img, _tmp_target, relax=self.relax, zero_pad=self.zero_pad))
+                        _crop.append(
+                            helpers.crop_from_mask(_tmp_img, _tmp_target, relax=self.relax, zero_pad=self.zero_pad))
             else:
                 for k in range(0, _target.shape[-1]):
                     if np.max(_target[..., k]) == 0:
                         _crop.append(np.zeros(_img.shape, dtype=_img.dtype))
                     else:
                         _tmp_target = _target[..., k]
-                        _crop.append(helpers.crop_from_mask(_img, _tmp_target, relax=self.relax, zero_pad=self.zero_pad))
+                        _crop.append(
+                            helpers.crop_from_mask(_img, _tmp_target, relax=self.relax, zero_pad=self.zero_pad))
             if len(_crop) == 1:
                 sample['crop_' + elem] = _crop[0]
             else:

@@ -151,11 +151,13 @@ def extreme_points(mask, pert):
                      ])
 
 
-def get_bbox(mask, points=None, pad=0, zero_pad=False):
+def get_bbox(mask=None, points=None, pad=0, zero_pad=False):
     if points is not None:
         inds = np.flip(points.transpose(), axis=0)
-    else:
+    elif mask is not None:
         inds = np.where(mask > 0)
+    else:
+        raise TypeError('Either mask or points should be provided')
 
     if inds[0].shape[0] == 0:
         return None
